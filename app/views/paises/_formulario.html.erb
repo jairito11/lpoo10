@@ -1,0 +1,18 @@
+	<table>
+		<tr>
+			<th><%= f.label :nombre %></th>
+			<td>
+				<%=f.hidden_field :id %>
+				<%= f.text_field :nombre %>
+				
+			</td>
+		</tr>
+		<tr>
+			<th><%= f.label 'descripcion' %></th>
+			<td><%= f.text_field :description %></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><%= f.submit "Guardar"%></td>
+		</tr>		
+	</table>

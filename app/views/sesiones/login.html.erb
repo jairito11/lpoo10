@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<h1>Login</h1>
+<%= form_tag(login_post_path) do %>
+<table>
+	<tr>
+		<th>Login</th>
+		<td><%= text_field_tag 'login' %></td>
+	</tr>
+	<tr>
+		<th>Password</th>
+		<td><%= text_field_tag 'password' %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= submit_tag 'Ingresar' %></td>
+	</tr>
+</table>
+<%end%>

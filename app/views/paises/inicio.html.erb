@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>Paises</h1>
+<table>
+	<tr>
+		<td>Nombre</td>
+		<td>Descripción</td>
+		<td></td>
+	</tr>
+    <% @paises.each do |pais| %>	
+		<tr>
+			<td><%= pais.nombre %></td>
+			<td><%= pais.description %></td>
+			<td><%= link_to 'Mostrar', mostrar_pais_path(pais.id) %></td>
+			<td><%= link_to 'Editar', editar_pais_path(pais.id) %></td>
+			<td><%= link_to 'Eliminar', eliminar_pais_path(pais.id), method: :delete, data: { confirm: '¿Estas seguro de eliminar?' } %></td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to "Nuevo país", nuevo_pais_path %>

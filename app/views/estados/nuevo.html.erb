@@ -1,0 +1,5 @@
+<h1>Formulario estado</h1>
+
+<%= form_with(model: @estado,id: 'formulario_estado',url: crear_estado_path, local: true) do |f| %>
+	<%= render 'formulario', estado: @estado, f: f %>
+<% end %>

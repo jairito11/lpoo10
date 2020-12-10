@@ -1,0 +1,6 @@
+<h1>Nuevo País</h1>
+
+<%= form_with(model: @pais,id: 'formulario_pais',url: crear_pais_path, local: true) do |f| %>
+	<%= render 'formulario', pais: @pais, f: f %>
+<% end %>
+<%= link_to "Regresar", paises_inicio_path %>
