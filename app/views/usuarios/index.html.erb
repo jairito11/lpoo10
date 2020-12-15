@@ -1,74 +1,85 @@
 <p id="notice"><%= notice %></p>
-<h1>Usuarios</h1>
+
 
 <%= form_tag(buscar_usuario_path) do%>
-  <table>
-    <tr>
-      <th>RFC</th>
-      <td><%= text_field_tag "rfc"%></td>
-    </tr>
-    <tr>
-      <th>CURP</th>
-      <td><%= text_field_tag "curp"%></td>
-    </tr>
-    <tr>
-      <th>NOMBRE</th>
-      <td><%= text_field_tag "nombre"%></td>
-    </tr>
-    <tr>
-      <th>PATERNO</th>
-      <td><%= text_field_tag "paterno"%></td>
-    </tr>
-    <tr>
-      <th>MATERNO</th>
-      <td><%= text_field_tag "materno"%></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= submit_tag  "Buscar "%></td>
-    </tr>
-  </table>
+<div class="container">
+  <div class="col-sm-10 col-sm offset-1">
+    <form>
+      <tr class="form-group"><h1>Usuarios</h1></tr>
+      <tr class="form-group">
+        <th>RFC</th>
+        <td><%= text_field_tag "rfc","",class: 'form-control m-1 p-1', placeholder: 'Ingresa rfc'%></td>
+      </tr>
+      <tr class="form-group">
+        <th>CURP</th>
+        <td><%= text_field_tag "curp","",class: 'form-control m-1 p-1', placeholder: 'Ingresa curp'%></td>
+      </tr>
+      <tr class="form-group">
+        <th>NOMBRE</th>
+        <td><%= text_field_tag "nombre", "",class: 'form-control m-1 p-1', placeholder: 'Ingresa nombre de usuario'%></td>
+      </tr>
+      <tr class="form-group">
+        <th>PATERNO</th>
+        <td><%= text_field_tag "paterno","",class: 'form-control m-1 p-1', placeholder: 'Ingresa apellido paterno'%></td>
+      </tr>
+      <tr class="form-group">
+        <th>MATERNO</th>
+        <td><%= text_field_tag "materno","",class: 'form-control m-1 p-1', placeholder: 'Ingresa apellido materno'%></td>
+      </tr>
+      <tr class="form-group">
+        <th></th>
+        <td><%= submit_tag  "Buscar ",class: 'btn btn-success form-control m-1 p-1'%></td>
+      </tr>
+    </form>
+    </div>  
+</div>
 <%end%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Rfc</th>
-      <th>Curp</th>
-      <th>Nombre</th>
-      <th>Paterno</th>
-      <th>Materno</th>
-      <th>Sexo</th>
-      <th>Telefono</th>
-      <th>Correo</th>
-      <th>Login</th>
-      <th>Password</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.rfc %></td>
-        <td><%= usuario.curp %></td>
-        <td><%= usuario.nombre %></td>
-        <td><%= usuario.paterno %></td>
-        <td><%= usuario.materno %></td>
-        <td><%= usuario.sexo %></td>
-        <td><%= usuario.telefono %></td>
-        <td><%= usuario.correo %></td>
-        <td><%= usuario.login %></td>
-        <td><%= usuario.password %></td>
-        <td><%= usuario.estado.nombre %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: '¿Desea eliminar este elemento?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+<div class="col-sm-10 col-sm offset-1">
+<table>
+      <thead>
+        <tr>
+          <th class="form-group">Rfc</th>
+          <th class="form-group">Curp</th>
+          <th class="form-group">Nombre</th>
+          <th class="form-group">Paterno</th>
+          <th class="form-group">Materno</th>
+          <th class="form-group">Sexo</th>
+          <th class="form-group">Telefono</th>
+          <th class="form-group">Correo</th>
+          <th class="form-group">Login</th>
+          <th class="form-group">Password</th>
+          <th class="form-group">Estado</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @usuarios.each do |usuario| %>
+          <tr>
+            <td><%= usuario.rfc %></td>
+            <td><%= usuario.curp %></td>
+            <td><%= usuario.nombre %></td>
+            <td><%= usuario.paterno %></td>
+            <td><%= usuario.materno %></td>
+            <td><%= usuario.sexo %></td>
+            <td><%= usuario.telefono %></td>
+            <td><%= usuario.correo %></td>
+            <td><%= usuario.login %></td>
+            <td><%= usuario.password %></td>
+            <td><%= usuario.estado.nombre %></td>
+            <td><%= link_to image_tag('buscar.jpg', :alt => 'imagen buscar', :width => '18px', :height => '18px', :title => "Consultar", :style => 'border: 0px'),usuario %></td>
+            <td><%= link_to 'Show', usuario %></td>
+            <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+            <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: '¿Desea eliminar este elemento?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>  
+</div>
 <%= will_paginate @usuarios , previous_label: 'Anterior', next_label: 'Siguiente'%>
 <br>
 
