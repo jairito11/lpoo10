@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
-<h1>Login</h1>
+
 <%= form_tag(login_post_path) do %>
-<table>
-	<tr>
-		<th>Login</th>
-		<td><%= text_field_tag 'login' %></td>
-	</tr>
-	<tr>
-		<th>Password</th>
-		<td><%= text_field_tag 'password' %></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td><%= submit_tag 'Ingresar' %></td>
-	</tr>
-</table>
+<div class="container">
+	<div class="col-sm-10 col-sm offset-1">
+		<form>
+			<tr class="form-group"><h1>Login</h1></tr>
+			<tr class="form-group">
+				<th>Nombre de usuario</th>
+				<td><%= text_field_tag 'login',"",class: 'form-control m-1 p-1', placeholder: 'Ingresa nombre de usuario' %></td>
+			</tr class="form-group">
+			<tr>
+				<th>Contraseña</th>
+				<td><%= text_field_tag 'password',"",class: 'form-control m-1 p-1', placeholder: 'Ingresa una contraseña' %></td>
+			</tr>
+			<tr class="form-group">
+				<th></th>
+				<td><%= submit_tag 'Ingresar', class: 'btn btn-primary '  %></td>
+			</tr>
+		</form>
+	</div>	
+</div>
 <%end%>
